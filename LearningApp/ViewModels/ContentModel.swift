@@ -29,7 +29,7 @@ class ContentModel: ObservableObject {
             
             do {
                 //data found --> parse from json
-                var modules = try decoder.decode([Module].self, from: jsonData)
+                let modules = try decoder.decode([Module].self, from: jsonData)
                 self.modules = modules
             }
             catch {
@@ -42,7 +42,7 @@ class ContentModel: ObservableObject {
         
         //get style data from url
         do {
-            var sData = try Data(contentsOf: styleURL!)
+            let sData = try Data(contentsOf: styleURL!)
             self.styleData = sData
         }
         catch {
