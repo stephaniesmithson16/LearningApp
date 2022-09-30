@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var content:ContentView
+    @EnvironmentObject var content:ContentModel
     
     var body: some View {
         Text("Hello, world!")
