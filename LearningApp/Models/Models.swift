@@ -41,6 +41,7 @@ class Test: Identifiable, Decodable {
     var id:Int
     var image:String
     var time:String
+    var description:String
     var questions:[Question]
     
 }

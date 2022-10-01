@@ -41,22 +41,20 @@ struct HomeTileView: View {
                     HStack {
                         Image(systemName: "text.book.closed")
                         Text(count)
-                            .font(.callout)
-                        
-                        Spacer()
+                            .font(.caption)
                         
                         Image(systemName: "clock")
                         Text(time)
-                            .font(.callout)
+                            .font(.caption)
                     }.padding(.bottom, 10)
                 }
             }.padding(.horizontal, 10)
-        }.padding()
+        }.padding([.horizontal, .top], 10)
     }
 }
 
 struct HomeTileView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTileView(image: "swift", title: "Learn Swift", description: "Understand the fundamentals of the Swift programming language.", count: "10 Lessons", time: "3 Hours")
+        HomeTileView(image: "swift", title: "Learn Swift", description: "Understand the fundamentals of the Swift programming language.", count: "10 Lessons   ", time: "3 Hours")
     }
 }
