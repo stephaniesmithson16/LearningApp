@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var content:ContentModel
+    @EnvironmentObject var model:ContentModel
     
     var body: some View {
         
@@ -23,13 +23,23 @@ struct HomeView: View {
                     
                     LazyVStack {
                         
-                        
-                        ForEach(content.modules) { module in
+                        ForEach(model.modules) { module in
                             
                             VStack() {
                                 
                                 // MARK: Lesson Tile
-                                HomeTileView(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons   " , time: module.content.time)
+                                NavigationLink(
+                                    destination: ContentView().onAppear(perform: {
+                                        model.setModule(module.id)
+                                    }),
+                                    label: {
+                                    HomeTileView(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons   " , time: module.content.time)
+                                    
+                                    }).onTapGesture {
+                                        model.setModule(module.id)
+                                    }
+                                    .accentColor(.black)
+                                
                                 
                                 // MARK: Test Tile
                                 HomeTileView(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) Questions   " , time: module.test.time)

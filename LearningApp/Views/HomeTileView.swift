@@ -35,7 +35,7 @@ struct HomeTileView: View {
                         .padding(.top, 10)
                     
                     Text(description)
-                        .font(.callout)
+                        .font(.subheadline)
                         .padding(.bottom, 20)
 
                     HStack {
