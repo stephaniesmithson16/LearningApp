@@ -50,8 +50,8 @@ struct HomeTileView: View {
                             .font(.caption)
                     }.padding(.bottom, 10)
                         
-                }.padding(.trailing, 10)
-            }.padding(.horizontal, 10)
+                }
+            }.padding(.horizontal, 12)
         }.padding([.horizontal, .top], 10)
     }
 }
