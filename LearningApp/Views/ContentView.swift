@@ -12,20 +12,23 @@ struct ContentView: View {
     @EnvironmentObject var model:ContentModel
     
     var body: some View {
-        
-        ScrollView {
-            LazyVStack(alignment: .leading) {
-                
-                // Confirm that current module is set
-                if model.currentModule != nil {
-                    ForEach(0..<model.currentModule!.content.lessons.count) { index in
-                        
-                        ContentTileView(index: index)
-                        
+        NavigationView {
+            
+            ScrollView {
+                LazyVStack(alignment: .leading) {
+                    
+                    // Confirm that current module is set
+                    if model.currentModule != nil {
+                        ForEach(0..<model.currentModule!.content.lessons.count) { index in
+                            NavigationLink {
+                                ContentDetailView().onAppear {
+                                    model.setLesson(index)
+                                }
+                            } label: {
+                                ContentTileView(index: index)
+                            }.accentColor(.black)
+                        }
                     }
-                }
-                else {
-                    Text("404 Not Found")
                 }
             }
         }
