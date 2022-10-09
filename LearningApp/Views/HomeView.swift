@@ -33,13 +33,13 @@ struct HomeView: View {
                                         model.setModule(module.id)
                                     }),
                                     label: {
-                                    HomeTileView(
-                                        image: module.content.image,
-                                        title: "Learn \(module.category)",
-                                        description: module.content.description,
-                                        count: "\(module.content.lessons.count) Lessons   " ,
-                                        time: module.content.time)
-                                    
+                                        HomeTileView(
+                                            image: module.content.image,
+                                            title: "Learn \(module.category)",
+                                            description: module.content.description,
+                                            count: "\(module.content.lessons.count) Lessons   " ,
+                                            time: module.content.time)
+                                        
                                     }).onTapGesture {
                                         model.setModule(module.id)
                                     }
@@ -56,9 +56,8 @@ struct HomeView: View {
                             }
                             
                         }
-                        
-                    }.navigationTitle("Get Started")
-                    
+                    }
+                    .navigationTitle("Get Started")
                 }
             }
         }

@@ -99,7 +99,7 @@ class ContentModel: ObservableObject {
         
     }
     
-    func hasNextLesson(_ lessonId:Int) -> Bool {
-        return lessonId + 1 < currentModule!.content.lessons.count
+    func hasNextLesson() -> Bool {
+        return currentLessonIndex + 1 < currentModule!.content.lessons.count
     }
 }

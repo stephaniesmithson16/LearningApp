@@ -38,6 +38,6 @@ struct ContentView: View {
                 .padding()
                 .navigationTitle("Learn \(model.currentModule?.category ?? "")")
             }
-        }
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }
