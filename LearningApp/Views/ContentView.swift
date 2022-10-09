@@ -15,21 +15,28 @@ struct ContentView: View {
         NavigationView {
             
             ScrollView {
-                LazyVStack(alignment: .leading) {
+                
+                LazyVStack {
                     
                     // Confirm that current module is set
                     if model.currentModule != nil {
+                        
                         ForEach(0..<model.currentModule!.content.lessons.count) { index in
+                            
                             NavigationLink {
                                 ContentDetailView().onAppear {
                                     model.setLesson(index)
                                 }
-                            } label: {
-                                ContentTileView(index: index)
-                            }.accentColor(.black)
+                            }
+                        label: {
+                            ContentTileView(index: index)
+                        }
                         }
                     }
                 }
+                .accentColor(Color.black)
+                .padding()
+                .navigationTitle("Learn \(model.currentModule?.category ?? "")")
             }
         }
     }
