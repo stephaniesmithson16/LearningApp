@@ -29,9 +29,14 @@ struct HomeView: View {
                                 
                                 // MARK: Lesson Tile
                                 NavigationLink(
-                                    destination: ContentView().onAppear(perform: {
+                                    destination:
+                                        ContentView()
+                                        .navigationBarHidden(true)
+                                        .onAppear(perform: {
                                         model.setModule(module.id)
                                     }),
+                                    tag: module.id,
+                                    selection: $model.currentSelectedIndex,
                                     label: {
                                         HomeTileView(
                                             image: module.content.image,
@@ -45,7 +50,6 @@ struct HomeView: View {
                                     }
                                     .accentColor(.black)
                                 
-                                
                                 // MARK: Test Tile
                                 HomeTileView(
                                     image: module.test.image,
@@ -54,7 +58,6 @@ struct HomeView: View {
                                     count: "\(module.test.questions.count) Questions   " ,
                                     time: module.test.time)
                             }
-                            
                         }
                     }
                     .navigationTitle("Get Started")

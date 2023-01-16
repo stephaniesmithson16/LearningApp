@@ -24,9 +24,10 @@ struct ContentView: View {
                         ForEach(0..<model.currentModule!.content.lessons.count) { index in
                             
                             NavigationLink {
-                                ContentDetailView().onAppear {
-                                    model.setLesson(index)
-                                }
+                                ContentDetailView()
+                                    .onAppear {
+                                        model.setLesson(index)
+                                    }
                             }
                         label: {
                             ContentTileView(index: index)
@@ -35,9 +36,8 @@ struct ContentView: View {
                     }
                 }
                 .accentColor(Color.black)
-                .padding()
                 .navigationTitle("Learn \(model.currentModule?.category ?? "")")
             }
-        }.navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
